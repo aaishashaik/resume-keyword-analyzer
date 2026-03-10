@@ -1,0 +1,6 @@
+Skills:
+Python
+SQL
+Git
+Machine Learning
+Data Analysis
