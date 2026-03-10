@@ -1,13 +1,17 @@
-resume_skills = ["java", "html", "css", "git"]
+# Resume Keyword Analyzer
 
-job_description_skills = ["java", "spring", "git", "sql"]
+def read_file(file_path):
+    with open(file_path, "r") as file:
+        return file.read().lower()
 
-missing_skills = []
+resume = read_file("sample_resume.txt")
+job_description = read_file("job_description.txt")
 
-for skill in job_description_skills:
-    if skill not in resume_skills:
-        missing_skills.append(skill)
+resume_words = set(resume.split())
+job_words = set(job_description.split())
 
-print("Resume Skills:", resume_skills)
-print("Job Skills:", job_description_skills)
+matched_skills = resume_words.intersection(job_words)
+missing_skills = job_words - resume_words
+
+print("Matched Skills:", matched_skills)
 print("Missing Skills:", missing_skills)
